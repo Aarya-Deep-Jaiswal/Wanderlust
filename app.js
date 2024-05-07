@@ -94,12 +94,18 @@ app.listen(8080, () => {
 
 //     let registeredUser = await User.register(fakeUser, "helloworld");
 //     res.send(registeredUser);
-// })
+// });
+
+app.get("/",(req,res)=>{
+    res.redirect("/listings");
+});
 
 
 app.use("/listings", ListingRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
+
+
 
 
 //For all other routes
